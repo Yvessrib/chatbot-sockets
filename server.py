@@ -1,15 +1,13 @@
 from socket import *
 
-# Porta do servidor
-PortaServidor = 12000
+PortaServidor = 12000 # Porta do servidor
 
 # Criação do socket UDP e configuração do servidor
 SocketServidor = socket(AF_INET, SOCK_DGRAM)
-SocketServidor.bind(('', PortaServidor))  # Vincula o socket à porta especificada
+SocketServidor.bind(('', PortaServidor))  # Vincula o socket porta especificada
 SocketServidor.settimeout(1000)  # Define um timeout de 1000 segundos para o socket
 
-# Dicionário para armazenar o estado de cada cliente
-clientes = {}
+clientes = {} # Dicionário para armazenar o estado de cada cliente
 
 # Definição dos estados do diálogo
 MENU = "MENU"
@@ -58,7 +56,7 @@ while True:
 
             elif mensagem_recebida == "3":
                 clientes[EnderecoCliente]["estado"] = ENCERRAR  # Transição para o estado ENCERRAR
-                resposta = "\n\tEncerrando o atendimento. Obrigado por utilizar o Banco XYZ!"
+                resposta = "\n\tEncerrando o atendimento. Obrigado por utilizar o Banco do Brasil!"
 
             else:
                 resposta = "Opção inválida. Por favor, digite 1 para conta corrente, 2 para conta salário, ou 3 para encerrar."
